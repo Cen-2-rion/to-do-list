@@ -59,10 +59,15 @@
   width: 24px;
   height: 24px;
   opacity: 0.8;
+  visibility: hidden;
 
   &:hover {
     opacity: 1;
   }
+}
+
+.done-icon.visible {
+  visibility: visible;
 }
 
 .delete-icon {

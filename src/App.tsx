@@ -1,11 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Task } from './components/interfaces';
 import Input from './components/Input';
 import List from './components/List';
 import './App.css';
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const saved = localStorage.getItem('tasks');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (text: string): void => {
     if (text.trim() === '') return;
@@ -25,7 +32,7 @@ function App() {
   }
 
   return (
-    <div className='app'>
+    <div className="app">
       <h1>To-Do List</h1>
       <Input onAdd={addTask} />
       <List tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />

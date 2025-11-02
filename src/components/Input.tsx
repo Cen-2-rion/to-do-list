@@ -12,7 +12,7 @@ export default function Input({ onAdd }: InputProps) {
 
     return (
         <form onSubmit={handleSubmit} className="form">
-            <input value={value} onChange={(e) => setValue(e.target.value)} placeholder="Напишите задачу..."/>
+            <input value={value} onChange={(e) => setValue(e.target.value)} placeholder="Напишите задачу..." />
             <button type="submit">Добавить</button>
         </form>
     );

@@ -4,12 +4,12 @@ import deleteIcon from "../assets/delete.png";
 
 export default function Item({ task, index, onToggle, onDelete }: ItemProps) {
     return (
-        <li className={`item ${task.completed ? 'done' : ''}`}>
+        <li className={`item ${task.completed ? "done" : ""}`}>
             <div className="wrapper" onClick={() => onToggle(index)}>
-                {task.completed && <img src={doneIcon} alt="done" className="done-icon"/>}
+                <img src={doneIcon} alt="done" className={`done-icon ${task.completed ? "visible" : ""}`} />
                 <span>{task.text}</span>
             </div>
-            <img src={deleteIcon} alt="delete" className="delete-icon" onClick={() => onDelete(index)}/>
+            <img src={deleteIcon} alt="delete" className="delete-icon" onClick={() => onDelete(index)} />
         </li>
     );
 }
