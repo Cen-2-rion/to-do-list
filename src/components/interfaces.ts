@@ -4,19 +4,19 @@ export interface Task {
 }
 
 export interface InputProps {
-    addTask: (text: string) => void,
+    onAdd: (text: string) => void,
 }
 
-export interface ListProps {
+type ActionsProps = {
+    onToggle: (index: number) => void,
+    onDelete: (index: number) => void,
+}
+
+export interface ListProps extends ActionsProps {
     tasks: Task[],
-    toggleTask: (index: number) => void,
-    deletetask: (index: number) => void,
-
 }
 
-export interface ItemProps {
+export interface ItemProps extends ActionsProps {
     task: Task,
     index: number,
-    toggleTask: (index: number) => void,
-    deleteTask: (index: number) => void,
 }
