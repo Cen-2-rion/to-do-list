@@ -1,10 +1,15 @@
 import type { ItemProps } from "./interfaces";
+import doneIcon from "../assets/done.png";
+import deleteIcon from "../assets/delete.png";
 
 export default function Item({ task, index, onToggle, onDelete }: ItemProps) {
     return (
         <li className={`item ${task.completed ? 'done' : ''}`}>
-            <span onClick={() => onToggle(index)}>{task.text}</span>
-            <button onClick={() => onDelete(index)}>Удалить</button>
+            <div className="wrapper" onClick={() => onToggle(index)}>
+                {task.completed && <img src={doneIcon} alt="done" className="done-icon"/>}
+                <span>{task.text}</span>
+            </div>
+            <img src={deleteIcon} alt="delete" className="delete-icon" onClick={() => onDelete(index)}/>
         </li>
     );
 }
