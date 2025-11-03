@@ -27,6 +27,8 @@ npm run dev
 
 После запуска проект будет доступен по адресу: http://localhost:3000
 
+Посмотреть приложение на GitHub Pages: https://cen-2-rion.github.io/to-do-list/
+
 ---
 
 ### Структура приложения
